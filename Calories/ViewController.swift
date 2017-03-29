@@ -60,11 +60,13 @@ class ViewController: UIViewController {
 //MARK: - view load function
     
     func setupView() {
-        let descriptor = UIFontDescriptor(name: "BebasNeue", size: 36)
-        let largeFont: UIFont = UIFont(descriptor: descriptor , size: 36)
-        let mediumFont: UIFont = UIFont(descriptor: descriptor, size: 24)
-        let smallFont: UIFont = UIFont(descriptor: descriptor, size: 20)
-        let tinyFont: UIFont = UIFont(descriptor: descriptor, size: 14)
+        
+        guard let largeFont: UIFont = UIFont(name: "BebasNeue", size: 36),
+            let mediumFont: UIFont = UIFont(name: "BebasNeue", size: 24),
+            let smallFont: UIFont = UIFont(name: "BebasNeue", size: 20),
+            let tinyFont: UIFont = UIFont(name: "BebasNeue", size: 14)
+            else { return }
+        
         
         
         maleButton.backgroundColor = whiteColor
@@ -92,7 +94,6 @@ class ViewController: UIViewController {
         
         genderLabel.text = "Gender"
         genderLabel.textColor = blackColor
-        genderLabel.font = largeFont
         ageLabel.text = "Age"
         ageLabel.textColor = blackColor
         ageLabel.font = smallFont
@@ -163,8 +164,10 @@ class ViewController: UIViewController {
         self.view.addSubview(gainButton)
         self.view.addSubview(caloriesLabel)
         self.view.addSubview(caloriesOutputLabel)
+        self.view.backgroundColor = greyColor
         
     }
+    
 
 
 }
