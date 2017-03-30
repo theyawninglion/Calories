@@ -35,24 +35,32 @@ class ViewController: UIViewController {
     var HeightPicker = UITextView()
     var HeightStackView = UIStackView()
     var userPropertiesStackView = UIStackView()
+
+    var activityLevelLabel = UILabel()
+    var superActiveLabel = UILabel()
+    var superActiveButton = UIButton()
+    var superActiveStackView = UIStackView()
+    
+    var activityLevelStackView = UIStackView()
+    var activeLabel = UILabel()
+    var activeButton = UIButton()
+    var activeStackView = UIStackView()
+    var moderateLabel = UILabel()
+    var moderateButton = UIButton()
+    var moderateStackView = UIStackView()
+    var lightLabel = UILabel()
+    var lightButton = UIButton()
+    var lightStackView = UIStackView()
+    var basicLabel = UILabel()
+    var basicButton = UIButton()
+    var basicStackView = UIStackView()
+
+    var goalLabel = UILabel()
+    var loseButton = UIButton()
+    var maintainButton = UIButton()
+    var gainButton = UIButton()
+    var goalStackView = UIStackView()
 //
-//    var activityLevelLabel = UILabel()
-//    var superActiveLabel = UILabel()
-//    var activeLabel = UILabel()
-//    var moderateLabel = UILabel()
-//    var lightLabel = UILabel()
-//    var basicLabel = UILabel()
-//    var superActiveButton = UIButton()
-//    var activeButton = UIButton()
-//    var moderateButton = UIButton()
-//    var lightButton = UIButton()
-//    var basicButton = UIButton()
-//    
-//    var goalLabel = UILabel()
-//    var loseButton = UIButton()
-//    var maintainButton = UIButton()
-//    var gainButton = UIButton()
-//    
 //    var caloriesLabel = UILabel()
 //    var caloriesOutputLabel = UILabel()
 //    
@@ -80,23 +88,23 @@ class ViewController: UIViewController {
         agePicker.backgroundColor = whiteColor
         weightPicker.backgroundColor = whiteColor
         HeightPicker.backgroundColor = whiteColor
-//        superActiveButton.backgroundColor = whiteColor
-//        activeButton.backgroundColor = whiteColor
-//        moderateButton.backgroundColor = whiteColor
-//        lightButton.backgroundColor = whiteColor
-//        basicButton.backgroundColor = whiteColor
-//        loseButton.backgroundColor = whiteColor
-//        maintainButton.backgroundColor = whiteColor
-//        gainButton.backgroundColor = whiteColor
+        superActiveButton.backgroundColor = whiteColor
+        activeButton.backgroundColor = whiteColor
+        moderateButton.backgroundColor = whiteColor
+        lightButton.backgroundColor = whiteColor
+        basicButton.backgroundColor = whiteColor
+        loseButton.backgroundColor = whiteColor
+        maintainButton.backgroundColor = whiteColor
+        gainButton.backgroundColor = whiteColor
 //        caloriesOutputLabel.backgroundColor = whiteColor
-//        
+        
         maleButton.setImage(#imageLiteral(resourceName: "maleIcon"), for: .normal)
         femaleButton.setImage(#imageLiteral(resourceName: "femaleIcon"), for: .normal)
-//        superActiveButton.setImage(#imageLiteral(resourceName: "superActive"), for: .normal)
-//        activeButton.setImage(#imageLiteral(resourceName: "active"), for: .normal)
-//        moderateButton.setImage(#imageLiteral(resourceName: "moderate"), for: .normal)
-//        lightButton.setImage(#imageLiteral(resourceName: "light"), for: .normal)
-//        basicButton.setImage(#imageLiteral(resourceName: "basic"), for: .normal)
+        superActiveButton.setImage(#imageLiteral(resourceName: "superActive"), for: .normal)
+        activeButton.setImage(#imageLiteral(resourceName: "active"), for: .normal)
+        moderateButton.setImage(#imageLiteral(resourceName: "moderate"), for: .normal)
+        lightButton.setImage(#imageLiteral(resourceName: "light"), for: .normal)
+        basicButton.setImage(#imageLiteral(resourceName: "basic"), for: .normal)
         
         genderLabel.text = "Gender"
         genderLabel.textColor = blackColor
@@ -116,36 +124,43 @@ class ViewController: UIViewController {
         heightLabel.font = smallFont
         heightLabel.textAlignment = .center
         
-//        activityLevelLabel.text = "Activity Level"
-//        activityLevelLabel.textColor = blackColor
-//        activityLevelLabel.font = largeFont
-//        superActiveLabel.text = "Super"
-//        superActiveLabel.textColor = blackColor
-//        superActiveLabel.font = tinyFont
-//        activeLabel.text = "Active"
-//        activeLabel.textColor = blackColor
-//        activeLabel.font = tinyFont
-//        moderateLabel.text = "Moderate"
-//        moderateLabel.textColor = blackColor
-//        moderateLabel.font = tinyFont
-//        lightLabel.text = "Light"
-//        lightLabel.textColor = blackColor
-//        lightLabel.font = tinyFont
-//        basicLabel.text = "Basic"
-//        basicLabel.textColor = blackColor
-//        basicLabel.font = tinyFont
-//        goalLabel.text = "Goal"
-//        goalLabel.textColor = blackColor
-//        goalLabel.font = largeFont
-//        loseButton.setTitle("Lose", for: .normal)
-//        loseButton.titleLabel?.textColor = blackColor
-//        loseButton.titleLabel?.font = mediumFont
-//        maintainButton.setTitle("Maintain", for: .normal)
-//        maintainButton.titleLabel?.textColor = blackColor
-//        maintainButton.titleLabel?.font = mediumFont
-//        gainButton.setTitle("Gain", for: .normal)
-//        gainButton.titleLabel?.textColor = blackColor
-//        gainButton.titleLabel?.font = mediumFont
+        activityLevelLabel.text = "Activity Level"
+        activityLevelLabel.textColor = blackColor
+        activityLevelLabel.font = largeFont
+        activityLevelLabel.textAlignment = .center
+        superActiveLabel.text = "Super"
+        superActiveLabel.textColor = blackColor
+        superActiveLabel.font = tinyFont
+        superActiveLabel.textAlignment = .center
+        activeLabel.text = "Active"
+        activeLabel.textColor = blackColor
+        activeLabel.font = tinyFont
+        activeLabel.textAlignment = .center
+        moderateLabel.text = "Moderate"
+        moderateLabel.textColor = blackColor
+        moderateLabel.font = tinyFont
+        moderateLabel.textAlignment = .center
+        lightLabel.text = "Light"
+        lightLabel.textColor = blackColor
+        lightLabel.font = tinyFont
+        lightLabel.textAlignment = .center
+        basicLabel.text = "Basic"
+        basicLabel.textColor = blackColor
+        basicLabel.font = tinyFont
+        basicLabel.textAlignment = .center
+        goalLabel.text = "Goal"
+        goalLabel.textColor = blackColor
+        goalLabel.font = largeFont
+        goalLabel.textAlignment = .center
+        loseButton.setTitle("Lose", for: .normal)
+        loseButton.setTitleColor(blackColor, for: .normal)
+        loseButton.titleLabel?.font = mediumFont
+        maintainButton.setTitle("Maintain", for: .normal)
+        maintainButton.setTitleColor(blackColor, for: .normal)
+        maintainButton.titleLabel?.font = mediumFont
+        gainButton.setTitle("Gain", for: .normal)
+        gainButton.setTitleColor(blackColor, for: .normal)
+        gainButton.titleLabel?.font = mediumFont
 //        caloriesLabel.text = "Calories Needed"
 //        caloriesLabel.textColor = blackColor
 //        caloriesLabel.font = largeFont
@@ -179,6 +194,41 @@ class ViewController: UIViewController {
         HeightStackView.distribution = .fillProportionally
         HeightStackView.spacing = 16.0
         
+        
+        activityLevelStackView.axis = .horizontal
+        activityLevelStackView.alignment = .fill
+        activityLevelStackView.distribution = .fillEqually
+        activityLevelStackView.spacing = 14
+        
+        superActiveStackView.axis = .vertical
+        superActiveStackView.alignment = .fill
+        superActiveStackView.distribution = .fillProportionally
+        superActiveStackView.spacing = 1.0
+        
+        activeStackView.axis = .vertical
+        activeStackView.alignment = .fill
+        activeStackView.distribution = .fillProportionally
+        activeStackView.spacing = 1.0
+        
+        moderateStackView.axis = .vertical
+        moderateStackView.alignment = .fill
+        moderateStackView.distribution = .fillProportionally
+        moderateStackView.spacing = 1.0
+        
+        lightStackView.axis = .vertical
+        lightStackView.alignment = .fill
+        lightStackView.distribution = .fillProportionally
+        lightStackView.spacing = 1.0
+        
+        basicStackView.axis = .vertical
+        basicStackView.alignment = .fill
+        basicStackView.distribution = .fillProportionally
+        basicStackView.spacing = 1.0
+        
+        goalStackView.axis = .horizontal
+        goalStackView.alignment = .fill
+        goalStackView.distribution = .fillEqually
+        goalStackView.spacing = 8.0
         //add subviews 
         
         
@@ -200,27 +250,43 @@ class ViewController: UIViewController {
         weightStackView.addArrangedSubview(weightPicker)
         HeightStackView.addArrangedSubview(heightLabel)
         HeightStackView.addArrangedSubview(HeightPicker)
+
+        self.view.addSubview(activityLevelLabel)
+        self.view.addSubview(activityLevelStackView)
         
+        activityLevelStackView.addArrangedSubview(superActiveStackView)
+        activityLevelStackView.addArrangedSubview(activeStackView)
+        activityLevelStackView.addArrangedSubview(moderateStackView)
+        activityLevelStackView.addArrangedSubview(lightStackView)
+        activityLevelStackView.addArrangedSubview(basicStackView)
+        
+        superActiveStackView.addArrangedSubview(superActiveLabel)
+        superActiveStackView.addArrangedSubview(superActiveButton)
+        
+        activeStackView.addArrangedSubview(activeLabel)
+        activeStackView.addArrangedSubview(activeButton)
+        
+        moderateStackView.addArrangedSubview(moderateLabel)
+        moderateStackView.addArrangedSubview(moderateButton)
+        
+        lightStackView.addArrangedSubview(lightLabel)
+        lightStackView.addArrangedSubview(lightButton)
+        
+        basicStackView.addArrangedSubview(basicLabel)
+        basicStackView.addArrangedSubview(basicButton)
         
         
 
-//        self.view.addSubview(activityLevelLabel)
-//        self.view.addSubview(superActiveLabel)
-//        self.view.addSubview(superActiveButton)
-//        self.view.addSubview(activeLabel)
-//        self.view.addSubview(activeButton)
-//        self.view.addSubview(moderateLabel)
-//        self.view.addSubview(moderateButton)
-//        self.view.addSubview(lightLabel)
-//        self.view.addSubview(lightButton)
-//        self.view.addSubview(basicLabel)
-//        self.view.addSubview(basicButton)
-//        self.view.addSubview(goalLabel)
-//        self.view.addSubview(loseButton)
-//        self.view.addSubview(maintainButton)
-//        self.view.addSubview(gainButton)
+        self.view.addSubview(goalLabel)
+        self.view.addSubview(goalStackView)
+        
+        goalStackView.addArrangedSubview(loseButton)
+        goalStackView.addArrangedSubview(maintainButton)
+        goalStackView.addArrangedSubview(gainButton)
+
 //        self.view.addSubview(caloriesLabel)
 //        self.view.addSubview(caloriesOutputLabel)
+        
         self.view.backgroundColor = greyColor
         
     }
@@ -242,35 +308,41 @@ class ViewController: UIViewController {
         heightLabel.translatesAutoresizingMaskIntoConstraints = false
         HeightPicker.translatesAutoresizingMaskIntoConstraints = false
         
-//        activityLevelLabel.translatesAutoresizingMaskIntoConstraints = false
-//        superActiveLabel.translatesAutoresizingMaskIntoConstraints = false
-//        activeLabel.translatesAutoresizingMaskIntoConstraints = false
-//        moderateLabel.translatesAutoresizingMaskIntoConstraints = false
-//        lightLabel.translatesAutoresizingMaskIntoConstraints = false
-//        basicLabel.translatesAutoresizingMaskIntoConstraints = false
-//        superActiveButton.translatesAutoresizingMaskIntoConstraints = false
-//        activeButton.translatesAutoresizingMaskIntoConstraints = false
-//        moderateButton.translatesAutoresizingMaskIntoConstraints = false
-//        lightButton.translatesAutoresizingMaskIntoConstraints = false
-//        basicButton.translatesAutoresizingMaskIntoConstraints = false
-//        goalLabel.translatesAutoresizingMaskIntoConstraints = false
-//        loseButton.translatesAutoresizingMaskIntoConstraints = false
-//        maintainButton.translatesAutoresizingMaskIntoConstraints = false
-//        gainButton.translatesAutoresizingMaskIntoConstraints = false
+        activityLevelLabel.translatesAutoresizingMaskIntoConstraints = false
+        activityLevelStackView.translatesAutoresizingMaskIntoConstraints = false
+        superActiveLabel.translatesAutoresizingMaskIntoConstraints = false
+        superActiveButton.translatesAutoresizingMaskIntoConstraints = false
+        superActiveStackView.translatesAutoresizingMaskIntoConstraints = false
+        activeLabel.translatesAutoresizingMaskIntoConstraints = false
+        activeButton.translatesAutoresizingMaskIntoConstraints = false
+        activeStackView.translatesAutoresizingMaskIntoConstraints = false
+        moderateLabel.translatesAutoresizingMaskIntoConstraints = false
+        moderateButton.translatesAutoresizingMaskIntoConstraints = false
+        moderateStackView.translatesAutoresizingMaskIntoConstraints = false
+        lightLabel.translatesAutoresizingMaskIntoConstraints = false
+        lightButton.translatesAutoresizingMaskIntoConstraints = false
+        lightStackView.translatesAutoresizingMaskIntoConstraints = false
+        basicLabel.translatesAutoresizingMaskIntoConstraints = false
+        basicButton.translatesAutoresizingMaskIntoConstraints = false
+        basicStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        goalLabel.translatesAutoresizingMaskIntoConstraints = false
+        goalStackView.translatesAutoresizingMaskIntoConstraints = false
+        loseButton.translatesAutoresizingMaskIntoConstraints = false
+        maintainButton.translatesAutoresizingMaskIntoConstraints = false
+        gainButton.translatesAutoresizingMaskIntoConstraints = false
 //        caloriesLabel.translatesAutoresizingMaskIntoConstraints = false
 //        caloriesOutputLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        //gender constrains
-        let genderLabelConstraints = [
+        
+        //MARK: - constraints
+        
+        let genderConstraints = [
+            
             genderLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             genderLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 24),
             genderLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1),
-            genderLabel.heightAnchor.constraint(equalToConstant: 36)
-      ]
-        
-        
-        
-        let genderButtonsConstraints = [
+            genderLabel.heightAnchor.constraint(equalToConstant: 36),
             
             genderStackView.centerXAnchor.constraint(equalTo: genderLabel.centerXAnchor),
             genderStackView.topAnchor.constraint(equalTo: genderLabel.bottomAnchor, constant: 5),
@@ -282,10 +354,12 @@ class ViewController: UIViewController {
         ]
         
         let userPropertyConstraints = [
+            
             userPropertiesStackView.centerXAnchor.constraint(equalTo: genderStackView.centerXAnchor),
             userPropertiesStackView.topAnchor.constraint(equalTo: genderStackView.bottomAnchor, constant: 50),
             userPropertiesStackView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95),
             userPropertiesStackView.heightAnchor.constraint(equalToConstant: 67),
+            
             ageStackView.widthAnchor.constraint(equalTo: weightStackView.widthAnchor),
             ageStackView.heightAnchor.constraint(equalTo: weightStackView.heightAnchor),
             HeightStackView.widthAnchor.constraint(equalTo: weightStackView.widthAnchor),
@@ -297,26 +371,94 @@ class ViewController: UIViewController {
             ageLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
             agePicker.widthAnchor.constraint(equalTo: weightPicker.widthAnchor),
             agePicker.heightAnchor.constraint(equalToConstant: 30),
-            agePicker.topAnchor.constraint(equalTo: ageLabel.bottomAnchor, constant: 16),
+
             
             weightLabel.widthAnchor.constraint(equalTo: weightPicker.widthAnchor),
             weightLabel.heightAnchor.constraint(equalToConstant: 20),
             weightLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
             weightPicker.heightAnchor.constraint(equalToConstant: 30),
-            weightPicker.topAnchor.constraint(equalTo: weightLabel.bottomAnchor, constant: 16),
+
             
             heightLabel.widthAnchor.constraint(equalTo: HeightPicker.widthAnchor),
             heightLabel.heightAnchor.constraint(equalToConstant: 20),
             heightLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
             HeightPicker.heightAnchor.constraint(equalToConstant: 30),
-            HeightPicker.topAnchor.constraint(equalTo: heightLabel.bottomAnchor, constant: 16)
+
             
         
         ]
         
-        self.view.addConstraints(genderLabelConstraints)
-        self.view.addConstraints(genderButtonsConstraints)
+        let activityLevelConstraints = [
+        
+            activityLevelLabel.centerXAnchor.constraint(equalTo: userPropertiesStackView.centerXAnchor),
+            activityLevelLabel.heightAnchor.constraint(equalToConstant: 36),
+            activityLevelLabel.topAnchor.constraint(equalTo: userPropertiesStackView.bottomAnchor, constant: 25),
+            activityLevelLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            
+            activityLevelStackView.centerXAnchor.constraint(equalTo: activityLevelLabel.centerXAnchor),
+            activityLevelStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95),
+            activityLevelStackView.topAnchor.constraint(equalTo: activityLevelLabel.bottomAnchor, constant: 10),
+            activityLevelStackView.heightAnchor.constraint(equalToConstant: 77),
+            
+            superActiveStackView.widthAnchor.constraint(equalTo: activeStackView.widthAnchor),
+            superActiveStackView.heightAnchor.constraint(equalTo: activeStackView.heightAnchor),
+            moderateStackView.widthAnchor.constraint(equalTo: activeStackView.widthAnchor),
+            moderateStackView.heightAnchor.constraint(equalTo: activeStackView.heightAnchor),
+            lightStackView.widthAnchor.constraint(equalTo: moderateStackView.widthAnchor),
+            lightStackView.heightAnchor.constraint(equalTo: moderateStackView.heightAnchor),
+            basicStackView.widthAnchor.constraint(equalTo: lightStackView.widthAnchor),
+            basicStackView.heightAnchor.constraint(equalTo: lightStackView.heightAnchor),
+            
+            superActiveLabel.widthAnchor.constraint(equalTo: superActiveButton.widthAnchor),
+            superActiveLabel.heightAnchor.constraint(equalToConstant: 14),
+            superActiveLabel.topAnchor.constraint(equalTo: activityLevelStackView.topAnchor),
+            superActiveButton.heightAnchor.constraint(equalToConstant: 57),
+            
+            activeLabel.widthAnchor.constraint(equalTo: activeButton.widthAnchor),
+            activeLabel.heightAnchor.constraint(equalToConstant: 14),
+            activeLabel.topAnchor.constraint(equalTo: activityLevelStackView.topAnchor),
+            activeButton.heightAnchor.constraint(equalToConstant: 57),
+            
+            moderateLabel.widthAnchor.constraint(equalTo: moderateButton.widthAnchor),
+            moderateLabel.heightAnchor.constraint(equalToConstant: 14),
+            moderateLabel.topAnchor.constraint(equalTo: activityLevelStackView.topAnchor),
+            moderateButton.heightAnchor.constraint(equalToConstant: 57),
+            
+            lightLabel.widthAnchor.constraint(equalTo: lightButton.widthAnchor),
+            lightLabel.heightAnchor.constraint(equalToConstant: 14),
+            lightLabel.topAnchor.constraint(equalTo: activityLevelStackView.topAnchor),
+            lightButton.heightAnchor.constraint(equalToConstant: 57),
+            
+            basicLabel.widthAnchor.constraint(equalTo: basicButton.widthAnchor),
+            basicLabel.heightAnchor.constraint(equalToConstant: 14),
+            basicLabel.topAnchor.constraint(equalTo: activityLevelStackView.topAnchor),
+            basicButton.heightAnchor.constraint(equalToConstant: 57)
+            
+        ]
+        
+        let goalConstraints = [
+            
+            goalLabel.topAnchor.constraint(equalTo: activityLevelStackView.bottomAnchor, constant: 25),
+            goalLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            goalLabel.heightAnchor.constraint(equalToConstant: 36),
+            
+            goalStackView.centerXAnchor.constraint(equalTo: goalLabel.centerXAnchor),
+            goalStackView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95),
+            goalStackView.heightAnchor.constraint(equalToConstant: 33),
+            goalStackView.topAnchor.constraint(equalTo: goalLabel.bottomAnchor, constant: 10),
+            
+            loseButton.widthAnchor.constraint(equalTo: maintainButton.widthAnchor),
+            loseButton.heightAnchor.constraint(equalTo: maintainButton.heightAnchor),
+            gainButton.widthAnchor.constraint(equalTo: maintainButton.widthAnchor),
+            gainButton.heightAnchor.constraint(equalTo: maintainButton.heightAnchor)
+            
+        
+        ]
+        
+        self.view.addConstraints(genderConstraints)
         self.view.addConstraints(userPropertyConstraints)
+        self.view.addConstraints(activityLevelConstraints)
+        self.view.addConstraints(goalConstraints)
     }
 
 
