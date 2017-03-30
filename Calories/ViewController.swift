@@ -60,10 +60,10 @@ class ViewController: UIViewController {
     var maintainButton = UIButton()
     var gainButton = UIButton()
     var goalStackView = UIStackView()
-//
-//    var caloriesLabel = UILabel()
-//    var caloriesOutputLabel = UILabel()
-//    
+
+    var caloriesLabel = UILabel()
+    var caloriesOutputLabel = UILabel()
+
     var whiteColor: UIColor = UIColor(red:0.95, green:0.98, blue:1.00, alpha:1.0)
     var greyColor: UIColor =  UIColor(red:0.82, green:0.84, blue:0.85, alpha:1.0)
     var blackColor: UIColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
         loseButton.backgroundColor = whiteColor
         maintainButton.backgroundColor = whiteColor
         gainButton.backgroundColor = whiteColor
-//        caloriesOutputLabel.backgroundColor = whiteColor
+        caloriesOutputLabel.backgroundColor = whiteColor
         
         maleButton.setImage(#imageLiteral(resourceName: "maleIcon"), for: .normal)
         femaleButton.setImage(#imageLiteral(resourceName: "femaleIcon"), for: .normal)
@@ -161,11 +161,13 @@ class ViewController: UIViewController {
         gainButton.setTitle("Gain", for: .normal)
         gainButton.setTitleColor(blackColor, for: .normal)
         gainButton.titleLabel?.font = mediumFont
-//        caloriesLabel.text = "Calories Needed"
-//        caloriesLabel.textColor = blackColor
-//        caloriesLabel.font = largeFont
-//        caloriesOutputLabel.textColor = blackColor
-//        caloriesOutputLabel.font = smallFont
+        caloriesLabel.text = "Calories Needed"
+        caloriesLabel.textColor = blackColor
+        caloriesLabel.font = largeFont
+        caloriesLabel.textAlignment = .center
+        caloriesOutputLabel.textColor = blackColor
+        caloriesOutputLabel.font = smallFont
+        caloriesOutputLabel.textAlignment = .center
         
         // stack view layout
         
@@ -284,8 +286,8 @@ class ViewController: UIViewController {
         goalStackView.addArrangedSubview(maintainButton)
         goalStackView.addArrangedSubview(gainButton)
 
-//        self.view.addSubview(caloriesLabel)
-//        self.view.addSubview(caloriesOutputLabel)
+        self.view.addSubview(caloriesLabel)
+        self.view.addSubview(caloriesOutputLabel)
         
         self.view.backgroundColor = greyColor
         
@@ -331,8 +333,8 @@ class ViewController: UIViewController {
         loseButton.translatesAutoresizingMaskIntoConstraints = false
         maintainButton.translatesAutoresizingMaskIntoConstraints = false
         gainButton.translatesAutoresizingMaskIntoConstraints = false
-//        caloriesLabel.translatesAutoresizingMaskIntoConstraints = false
-//        caloriesOutputLabel.translatesAutoresizingMaskIntoConstraints = false
+        caloriesLabel.translatesAutoresizingMaskIntoConstraints = false
+        caloriesOutputLabel.translatesAutoresizingMaskIntoConstraints = false
         
         
         //MARK: - constraints
@@ -455,10 +457,24 @@ class ViewController: UIViewController {
         
         ]
         
+        let outputConstraints = [
+        
+            caloriesLabel.topAnchor.constraint(equalTo: goalStackView.bottomAnchor, constant: 25),
+            caloriesLabel.centerXAnchor.constraint(equalTo: goalStackView.centerXAnchor),
+            caloriesLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor),
+            caloriesLabel.heightAnchor.constraint(equalToConstant: 36),
+            
+            caloriesOutputLabel.topAnchor.constraint(equalTo: caloriesLabel.bottomAnchor, constant: 10),
+            caloriesOutputLabel.centerXAnchor.constraint(equalTo: caloriesLabel.centerXAnchor),
+            caloriesOutputLabel.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95),
+            caloriesOutputLabel.heightAnchor.constraint(equalToConstant: 30)
+        ]
+        
         self.view.addConstraints(genderConstraints)
         self.view.addConstraints(userPropertyConstraints)
         self.view.addConstraints(activityLevelConstraints)
         self.view.addConstraints(goalConstraints)
+        self.view.addConstraints(outputConstraints)
     }
 
 
