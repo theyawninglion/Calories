@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,5 +29,39 @@
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="OqC-yD-yf3">
+            <objects>
+                <viewController id="L3Z-hd-Xhn" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="8B8-qf-mXN"/>
+                        <viewControllerLayoutGuide type="bottom" id="0T0-nd-3SV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hd2-T4-m69">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreenImage" translatesAutoresizingMaskIntoConstraints="NO" id="XwB-54-RVb">
+                                <rect key="frame" x="47" y="255.5" width="281.5" height="156"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="XwB-54-RVb" secondAttribute="height" multiplier="159:88" id="SHA-NI-2Bh"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="XwB-54-RVb" firstAttribute="centerX" secondItem="hd2-T4-m69" secondAttribute="centerX" id="2NK-z2-DFq"/>
+                            <constraint firstItem="XwB-54-RVb" firstAttribute="centerY" secondItem="hd2-T4-m69" secondAttribute="centerY" id="JL0-TB-7jg"/>
+                            <constraint firstItem="XwB-54-RVb" firstAttribute="width" secondItem="hd2-T4-m69" secondAttribute="width" multiplier="3/4" id="mOw-Gd-lgf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yDb-Kr-gEE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-746" y="38"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="launchScreenImage" width="237" height="132"/>
+    </resources>
 </document>

@@ -13,6 +13,9 @@ extension ViewController {
     
     func setupView() {
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: Selector(("dismissKeyBoard")))
+        view.addGestureRecognizer(tap)
+        
         //MARK: - button actions
         maleButton.addTarget(self, action: #selector(genderButtonTapped(_:)), for: .touchUpInside)
         femaleButton.addTarget(self, action: #selector(genderButtonTapped(_:)), for: .touchUpInside)
@@ -24,6 +27,19 @@ extension ViewController {
         loseButton.addTarget(self, action: #selector(goalButtonTapped(_:)), for: .touchUpInside)
         maintainButton.addTarget(self, action: #selector(goalButtonTapped(_:)), for: .touchUpInside)
         gainButton.addTarget(self, action: #selector(goalButtonTapped(_:)), for: .touchUpInside)
+        
+        maleButton.tag = 0
+        femaleButton.tag = 1
+        
+        superActiveButton.tag = 0
+        activeButton.tag = 1
+        moderateButton.tag = 2
+        lightButton.tag = 3
+        basicButton.tag = 4
+        
+        loseButton.tag = 0
+        maintainButton.tag = 1
+        gainButton.tag = 2
         
         maleButton.setImage(#imageLiteral(resourceName: "maleIcon"), for: .normal)
         femaleButton.setImage(#imageLiteral(resourceName: "femaleIcon"), for: .normal)
@@ -42,9 +58,9 @@ extension ViewController {
         
         maleButton.backgroundColor = whiteColor
         femaleButton.backgroundColor = whiteColor
-        agePicker.backgroundColor = whiteColor
-        weightPicker.backgroundColor = whiteColor
-        HeightPicker.backgroundColor = whiteColor
+        ageTextField.backgroundColor = whiteColor
+        weightTextField.backgroundColor = whiteColor
+        heightTextField.backgroundColor = whiteColor
         superActiveButton.backgroundColor = whiteColor
         activeButton.backgroundColor = whiteColor
         moderateButton.backgroundColor = whiteColor
@@ -120,7 +136,27 @@ extension ViewController {
         caloriesOutputLabel.font = smallFont
         caloriesOutputLabel.textAlignment = .center
         
-        // stack view layout
+        ageTextField.font = smallFont
+        ageTextField.textColor = blackColor
+        ageTextField.textAlignment = .center
+        ageTextField.placeholder = "Enter Age"
+        ageTextField.resignFirstResponder()
+        weightTextField.font = smallFont
+        weightTextField.textColor = blackColor
+        weightTextField.textAlignment = .center
+        weightTextField.placeholder = "in lbs"
+        weightTextField.resignFirstResponder()
+        heightTextField.font = smallFont
+        heightTextField.textColor = blackColor
+        heightTextField.textAlignment = .center
+        heightTextField.placeholder = "in Inches"
+        heightTextField.resignFirstResponder()
+        
+        ageTextField.keyboardType = .numberPad
+        weightTextField.keyboardType = .numberPad
+        heightTextField.keyboardType = .numberPad
+        
+        //MARK: -  StackView layout
         
         genderStackView.axis = .horizontal
         genderStackView.alignment = .fill
@@ -142,10 +178,10 @@ extension ViewController {
         weightStackView.distribution = .fillProportionally
         weightStackView.spacing = 16.0
         
-        HeightStackView.axis = .vertical
-        HeightStackView.alignment = .fill
-        HeightStackView.distribution = .fillProportionally
-        HeightStackView.spacing = 16.0
+        heightStackView.axis = .vertical
+        heightStackView.alignment = .fill
+        heightStackView.distribution = .fillProportionally
+        heightStackView.spacing = 16.0
         
         
         activityLevelStackView.axis = .horizontal
@@ -193,14 +229,14 @@ extension ViewController {
         self.view.addSubview(userPropertiesStackView)
         userPropertiesStackView.addArrangedSubview(ageStackView)
         userPropertiesStackView.addArrangedSubview(weightStackView)
-        userPropertiesStackView.addArrangedSubview(HeightStackView)
+        userPropertiesStackView.addArrangedSubview(heightStackView)
         
         ageStackView.addArrangedSubview(ageLabel)
-        ageStackView.addArrangedSubview(agePicker)
+        ageStackView.addArrangedSubview(ageTextField)
         weightStackView.addArrangedSubview(weightLabel)
-        weightStackView.addArrangedSubview(weightPicker)
-        HeightStackView.addArrangedSubview(heightLabel)
-        HeightStackView.addArrangedSubview(HeightPicker)
+        weightStackView.addArrangedSubview(weightTextField)
+        heightStackView.addArrangedSubview(heightLabel)
+        heightStackView.addArrangedSubview(heightTextField)
         
         self.view.addSubview(activityLevelLabel)
         self.view.addSubview(activityLevelStackView)
@@ -249,14 +285,14 @@ extension ViewController {
         userPropertiesStackView.translatesAutoresizingMaskIntoConstraints = false
         ageStackView.translatesAutoresizingMaskIntoConstraints = false
         weightStackView.translatesAutoresizingMaskIntoConstraints = false
-        HeightStackView.translatesAutoresizingMaskIntoConstraints = false
+        heightStackView.translatesAutoresizingMaskIntoConstraints = false
         
         ageLabel.translatesAutoresizingMaskIntoConstraints = false
-        agePicker.translatesAutoresizingMaskIntoConstraints = false
+        ageTextField.translatesAutoresizingMaskIntoConstraints = false
         weightLabel.translatesAutoresizingMaskIntoConstraints = false
-        weightPicker.translatesAutoresizingMaskIntoConstraints = false
+        weightTextField.translatesAutoresizingMaskIntoConstraints = false
         heightLabel.translatesAutoresizingMaskIntoConstraints = false
-        HeightPicker.translatesAutoresizingMaskIntoConstraints = false
+        heightTextField.translatesAutoresizingMaskIntoConstraints = false
         
         activityLevelLabel.translatesAutoresizingMaskIntoConstraints = false
         activityLevelStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -311,27 +347,27 @@ extension ViewController {
             
             ageStackView.widthAnchor.constraint(equalTo: weightStackView.widthAnchor),
             ageStackView.heightAnchor.constraint(equalTo: weightStackView.heightAnchor),
-            HeightStackView.widthAnchor.constraint(equalTo: weightStackView.widthAnchor),
-            HeightStackView.heightAnchor.constraint(equalTo: weightStackView.heightAnchor),
+            heightStackView.widthAnchor.constraint(equalTo: weightStackView.widthAnchor),
+            heightStackView.heightAnchor.constraint(equalTo: weightStackView.heightAnchor),
             
             
-            ageLabel.widthAnchor.constraint(equalTo: agePicker.widthAnchor),
+            ageLabel.widthAnchor.constraint(equalTo: ageTextField.widthAnchor),
             ageLabel.heightAnchor.constraint(equalToConstant: 20),
             ageLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
-            agePicker.widthAnchor.constraint(equalTo: weightPicker.widthAnchor),
-            agePicker.heightAnchor.constraint(equalToConstant: 30),
+            ageTextField.widthAnchor.constraint(equalTo: weightTextField.widthAnchor),
+            ageTextField.heightAnchor.constraint(equalToConstant: 30),
             
             
-            weightLabel.widthAnchor.constraint(equalTo: weightPicker.widthAnchor),
+            weightLabel.widthAnchor.constraint(equalTo: weightTextField.widthAnchor),
             weightLabel.heightAnchor.constraint(equalToConstant: 20),
             weightLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
-            weightPicker.heightAnchor.constraint(equalToConstant: 30),
+            weightTextField.heightAnchor.constraint(equalToConstant: 30),
             
             
-            heightLabel.widthAnchor.constraint(equalTo: HeightPicker.widthAnchor),
+            heightLabel.widthAnchor.constraint(equalTo: heightTextField.widthAnchor),
             heightLabel.heightAnchor.constraint(equalToConstant: 20),
             heightLabel.topAnchor.constraint(equalTo: userPropertiesStackView.topAnchor),
-            HeightPicker.heightAnchor.constraint(equalToConstant: 30)
+            heightTextField.heightAnchor.constraint(equalToConstant: 30)
         ]
         
         let activityLevelConstraints = [

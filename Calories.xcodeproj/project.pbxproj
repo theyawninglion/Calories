@@ -8,16 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		5A6356AC1E8D8F8C00E7BCA2 /* ExtentionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6356AB1E8D8F8C00E7BCA2 /* ExtentionViewController.swift */; };
+		5A6356B21E8DC0EC00E7BCA2 /* Calories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A6356B11E8DC0EC00E7BCA2 /* Calories.swift */; };
 		5AADA62A1E89A656008C1837 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADA6291E89A656008C1837 /* AppDelegate.swift */; };
 		5AADA62C1E89A656008C1837 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADA62B1E89A656008C1837 /* ViewController.swift */; };
 		5AADA62F1E89A656008C1837 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AADA62D1E89A656008C1837 /* Main.storyboard */; };
 		5AADA6311E89A656008C1837 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5AADA6301E89A656008C1837 /* Assets.xcassets */; };
 		5AADA6341E89A656008C1837 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5AADA6321E89A656008C1837 /* LaunchScreen.storyboard */; };
-		5AADA63C1E89A677008C1837 /* Calculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADA63B1E89A677008C1837 /* Calculator.swift */; };
+		5AADA63C1E89A677008C1837 /* CaloriesController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5AADA63B1E89A677008C1837 /* CaloriesController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5A6356AB1E8D8F8C00E7BCA2 /* ExtentionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtentionViewController.swift; sourceTree = "<group>"; };
+		5A6356B11E8DC0EC00E7BCA2 /* Calories.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calories.swift; sourceTree = "<group>"; };
 		5AADA6261E89A656008C1837 /* Calories.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calories.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AADA6291E89A656008C1837 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5AADA62B1E89A656008C1837 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -25,7 +27,7 @@
 		5AADA6301E89A656008C1837 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5AADA6331E89A656008C1837 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5AADA6351E89A656008C1837 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		5AADA63B1E89A677008C1837 /* Calculator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Calculator.swift; sourceTree = "<group>"; };
+		5AADA63B1E89A677008C1837 /* CaloriesController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaloriesController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,7 +53,7 @@
 		5A6356AE1E8D94D400E7BCA2 /* ModelController */ = {
 			isa = PBXGroup;
 			children = (
-				5AADA63B1E89A677008C1837 /* Calculator.swift */,
+				5AADA63B1E89A677008C1837 /* CaloriesController.swift */,
 			);
 			name = ModelController;
 			sourceTree = "<group>";
@@ -75,6 +77,14 @@
 			name = StoryBoard;
 			sourceTree = "<group>";
 		};
+		5A6356B31E8DC2CF00E7BCA2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5A6356B11E8DC0EC00E7BCA2 /* Calories.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		5AADA61D1E89A656008C1837 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				5A6356AE1E8D94D400E7BCA2 /* ModelController */,
+				5A6356B31E8DC2CF00E7BCA2 /* Model */,
 				5A6356AD1E8D94C100E7BCA2 /* ViewController */,
 				5A6356B01E8D94F500E7BCA2 /* StoryBoard */,
 				5A6356AF1E8D94DF00E7BCA2 /* Resources */,
@@ -175,7 +186,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5AADA63C1E89A677008C1837 /* Calculator.swift in Sources */,
+				5A6356B21E8DC0EC00E7BCA2 /* Calories.swift in Sources */,
+				5AADA63C1E89A677008C1837 /* CaloriesController.swift in Sources */,
 				5A6356AC1E8D8F8C00E7BCA2 /* ExtentionViewController.swift in Sources */,
 				5AADA62C1E89A656008C1837 /* ViewController.swift in Sources */,
 				5AADA62A1E89A656008C1837 /* AppDelegate.swift in Sources */,
@@ -307,6 +319,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.theyawninglion.Calories;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,6 +333,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.theyawninglion.Calories;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

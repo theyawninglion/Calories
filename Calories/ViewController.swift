@@ -8,15 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupView()
         setupConstraints()
+        
+        
     }
-    
-    //MARK: - view properties
+    func dismissKeyBoard() {
+        view.endEditing(true)
+    }
+    //MARK: - properties
     
     var genderLabel = UILabel()
     var maleButton = UIButton()
@@ -25,14 +30,14 @@ class ViewController: UIViewController {
     
     
     var ageLabel = UILabel()
-    var agePicker = UITextView()
+    var ageTextField = UITextField()
     var ageStackView = UIStackView()
     var weightLabel = UILabel()
-    var weightPicker = UITextView()
+    var weightTextField = UITextField()
     var weightStackView = UIStackView()
     var heightLabel = UILabel()
-    var HeightPicker = UITextView()
-    var HeightStackView = UIStackView()
+    var heightTextField = UITextField()
+    var heightStackView = UIStackView()
     var userPropertiesStackView = UIStackView()
     
     var activityLevelLabel = UILabel()
@@ -68,7 +73,10 @@ class ViewController: UIViewController {
     var blackColor: UIColor = UIColor(red:0.09, green:0.09, blue:0.10, alpha:1.0)
     var selectedColor: UIColor = UIColor(red:0.65, green:0.72, blue:0.76, alpha:1.0)
     
-
+    
+    
+    
+    //MARK: - Button Functions
     func selectedButton(_ sender: AnyObject) {
         
         guard let button = sender as? UIButton else { return }
@@ -77,11 +85,13 @@ class ViewController: UIViewController {
             UIView.animate(withDuration: 0.3, animations: {
                 button.backgroundColor = self.selectedColor
             })
+            runCalculation()
         }
     }
     
+    var gender: Calories.Gender?
+    
     func genderButtonTapped(_ sender: AnyObject) {
-        
         UIView.animate(withDuration: 0.3) {
             self.femaleButton.backgroundColor = self.whiteColor
             self.maleButton.backgroundColor = self.whiteColor
@@ -89,12 +99,21 @@ class ViewController: UIViewController {
         self.femaleButton.isSelected = false
         self.maleButton.isSelected = false
         
+        switch sender.tag {
+        case 0:
+            gender = Calories.Gender.male
+        default:
+            gender = Calories.Gender.female
+            
+        }
         selectedButton(sender)
+        
     }
+    var activityLevel: Calories.ActivityLevel?
     
     func activityButtonTapped(_ sender: AnyObject) {
         
-        UIView.animate(withDuration: 0.3) { 
+        UIView.animate(withDuration: 0.3) {
             self.superActiveButton.backgroundColor = self.whiteColor
             self.activeButton.backgroundColor = self.whiteColor
             self.moderateButton.backgroundColor = self.whiteColor
@@ -108,8 +127,22 @@ class ViewController: UIViewController {
         self.basicButton.isSelected = false
         
         
+        switch sender.tag {
+        case 0:
+            activityLevel = Calories.ActivityLevel.superActive
+        case 1:
+            activityLevel = Calories.ActivityLevel.active
+        case 2:
+            activityLevel = Calories.ActivityLevel.moderate
+        case 3:
+            activityLevel = Calories.ActivityLevel.light
+        default:
+            activityLevel = Calories.ActivityLevel.basic
+        }
         selectedButton(sender)
+        
     }
+    var goal: Calories.Goal?
     
     func goalButtonTapped(_ sender: AnyObject) {
         
@@ -122,8 +155,27 @@ class ViewController: UIViewController {
         self.maintainButton.isSelected = false
         self.gainButton.isSelected = false
         
+        
+        switch sender.tag {
+        case 0:
+            goal = Calories.Goal.lose
+        case 1:
+            goal = Calories.Goal.maintain
+        default:
+            goal = Calories.Goal.gain
+        }
+        
         selectedButton(sender)
-
+        
+    }
+    
+    func runCalculation() {
+        guard let age = Double(ageTextField.text!), let weight = Double(weightTextField.text!), let height = Double(heightTextField.text!), let gender = gender, let activityLevel = activityLevel, let goal = goal else { return }
+        let calories = Calories(gender: gender, age: age, weight: weight, height: height, activityLevel: activityLevel, goal: goal)
+        let outPut = CaloriesController.calculate(calories: calories)
+        
+        caloriesOutputLabel.text = "\(outPut)"
+        
     }
     
 }
